@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "538826399270",
+    "firebase_url": "https://comprapp-560b3-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "comprapp-560b3",
+    "storage_bucket": "comprapp-560b3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538826399270:android:2806b604de93368d3a10e7",
+        "android_client_info": {
+          "package_name": "com.example.compraapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxC2F5RE4k8CHZToygEWRG0nKqT4dKdps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
