@@ -6,15 +6,16 @@
     android:padding="24dp">
 
     <TextView
+        android:id="@+id/tvListTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Historial de Listas"
-        android:textSize="20sp"
+        android:text="Lista"
         android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_marginBottom="16dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewLists"
+    <ListView
+        android:id="@+id/listViewItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>
