@@ -1,10 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuActivity">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#FFFFFF">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="123dp"
+        android:layout_height="124dp"
+        android:background="@drawable/circular_image"
+        android:clipToOutline="true"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btnNuevaLista"
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#BDBDBD"
+        android:text="Nueva lista"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/btnHistorial"
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        android:text="Historial listas"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#BDBDBD"
+        android:textColor="#000000"/>
+
+    <Button
+        android:id="@+id/btnPerfil"
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        android:text="Perfil"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#BDBDBD"
+        android:textColor="#000000"/>
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        android:text="Cerrar sesión"
+        android:backgroundTint="#D32F2F"
+        android:textColor="#FFFFFF"/>
+</LinearLayout>
