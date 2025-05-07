@@ -28,18 +28,18 @@ public class MenuActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         btnNuevaLista.setOnClickListener(v -> {
-            // Intent para NuevaListaActivity (a crear)
-            // startActivity(new Intent(this, NuevaListaActivity.class));
+            // Intent para NewListActivity
+            startActivity(new Intent(this, NewListActivity.class));
         });
 
         btnHistorial.setOnClickListener(v -> {
-            // Intent para HistorialActivity (a crear)
-            // startActivity(new Intent(this, HistorialActivity.class));
+            // Intent para HistoryListsActivity
+            startActivity(new Intent(this, HistoryListsActivity.class));
         });
 
         btnPerfil.setOnClickListener(v -> {
-            // Intent para PerfilActivity (a crear)
-            // startActivity(new Intent(this, PerfilActivity.class));
+            // Intent para ProfileActivity
+            startActivity(new Intent(this, ProfileActivity.class));
         });
 
         btnCerrarSesion.setOnClickListener(v -> {
