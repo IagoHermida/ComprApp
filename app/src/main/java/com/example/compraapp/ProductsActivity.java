@@ -1,12 +1,19 @@
 package com.example.compraapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.*;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -23,6 +30,14 @@ public class ProductsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        boolean modoEdicion = getIntent().getBooleanExtra("modoEdicion", false);
+        listName = getIntent().getStringExtra("listName");
+
+
+        if (modoEdicion) {
+            cargarProductosExistentes(listName);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
 
@@ -60,13 +75,19 @@ public class ProductsActivity extends AppCompatActivity {
                     .child(uid)
                     .child(listName)
                     .setValue(productList)
-                    .addOnSuccessListener(aVoid ->
-                            Toast.makeText(this, "Lista guardada correctamente", Toast.LENGTH_SHORT).show()
-                    )
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(this, "Lista guardada correctamente", Toast.LENGTH_SHORT).show();
+                        // Redirige a MenuActivity
+                        Intent intent = new Intent(ProductsActivity.this, MenuActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish(); // Finaliza la actividad actual para evitar volver atrás
+                    })
                     .addOnFailureListener(e ->
                             Toast.makeText(this, "Error al guardar: " + e.getMessage(), Toast.LENGTH_LONG).show()
                     );
         });
+
 
         btnClearList.setOnClickListener(v -> {
             productList.clear();
@@ -74,4 +95,28 @@ public class ProductsActivity extends AppCompatActivity {
             Toast.makeText(this, "Lista vaciada", Toast.LENGTH_SHORT).show();
         });
     }
+
+    private void cargarProductosExistentes(String listName) {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("listas")
+                .child(uid)
+                .child(listName);
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot productoSnap : snapshot.getChildren()) {
+                    String producto = productoSnap.getValue(String.class);
+                    productList.add(producto);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProductsActivity.this, "Error al cargar productos", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }
