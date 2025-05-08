@@ -2,6 +2,7 @@ package com.example.compraapp;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -43,9 +44,16 @@ public class MenuActivity extends AppCompatActivity {
         });
 
         btnCerrarSesion.setOnClickListener(v -> {
-            mAuth.signOut();
-            startActivity(new Intent(MenuActivity.this, MainActivity.class));
+            FirebaseAuth.getInstance().signOut();
+
+            SharedPreferences prefs = getSharedPreferences("userPrefs", MODE_PRIVATE);
+            prefs.edit().clear().apply();
+
+            // Ir a LoginActivity
+            Intent intent = new Intent(MenuActivity.this, LoginActivity.class);
+            startActivity(intent);
             finish();
+
         });
     }
 }

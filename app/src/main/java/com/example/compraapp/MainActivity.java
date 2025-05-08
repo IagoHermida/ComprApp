@@ -1,11 +1,14 @@
 package com.example.compraapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +16,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences prefs = getSharedPreferences("userPrefs", MODE_PRIVATE);
+        String uid = prefs.getString("uid", null);
+
+        if (uid != null && FirebaseAuth.getInstance().getCurrentUser() != null) {
+            // Usuario ya logueado, ir directo a MenuActivity
+            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
