@@ -19,8 +19,9 @@ public class ViewListActivity extends AppCompatActivity {
 
     private TextView tvListTitle;
     private ListView listViewItems;
-    private ArrayAdapter<String> adapter;
+    //private ArrayAdapter<String> adapter;
     private ArrayList<String> products;
+    private ProductCheckAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class ViewListActivity extends AppCompatActivity {
         tvListTitle = findViewById(R.id.tvListTitle);
         listViewItems = findViewById(R.id.listViewItems);
         products = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, products);
+        adapter = new ProductCheckAdapter(this, products);
         listViewItems.setAdapter(adapter);
 
         String listName = getIntent().getStringExtra("listName");
