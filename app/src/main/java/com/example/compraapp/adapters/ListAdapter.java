@@ -1,4 +1,4 @@
-package com.example.compraapp;
+package com.example.compraapp.adapters;
 
 
 import android.app.AlertDialog;
@@ -13,6 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.compraapp.views.ProductsActivity;
+import com.example.compraapp.R;
+import com.example.compraapp.views.ViewListActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

@@ -1,4 +1,4 @@
-package com.example.compraapp;
+package com.example.compraapp.views;
 
 
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.compraapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MenuActivity extends AppCompatActivity {

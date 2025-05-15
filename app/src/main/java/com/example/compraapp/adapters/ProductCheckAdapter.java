@@ -1,4 +1,4 @@
-package com.example.compraapp;
+package com.example.compraapp.adapters;
 
 import android.content.Context;
 import android.content.SharedPreferences;

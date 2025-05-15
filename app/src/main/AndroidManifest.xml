@@ -13,31 +13,31 @@
         android:theme="@style/Theme.CompraApp"
         tools:targetApi="31">
         <activity
-            android:name=".ViewListActivity"
+            android:name=".views.ViewListActivity"
             android:exported="false" />
         <activity
-            android:name=".ProductsActivity"
+            android:name=".views.ProductsActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".views.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".HistoryListsActivity"
+            android:name=".views.HistoryListsActivity"
             android:exported="false" />
         <activity
-            android:name=".NewListActivity"
+            android:name=".views.NewListActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".views.MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".views.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".views.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".views.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

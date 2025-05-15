@@ -1,8 +1,7 @@
-package com.example.compraapp;
+package com.example.compraapp.views;
 
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -10,6 +9,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.compraapp.R;
+import com.example.compraapp.adapters.ProductCheckAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
 
@@ -26,9 +27,9 @@ public class ViewListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_list);
+        setContentView(com.example.compraapp.R.layout.activity_view_list);
 
-        tvListTitle = findViewById(R.id.tvListTitle);
+        tvListTitle = findViewById(com.example.compraapp.R.id.tvListTitle);
         listViewItems = findViewById(R.id.listViewItems);
         products = new ArrayList<>();
         adapter = new ProductCheckAdapter(this, products);
